@@ -1,1 +1,96 @@
 # atividade-pratica-poo.01
+
+
+class Endereco:
+    def __init__(self, rua, cidade):
+        self.rua = rua
+        self.cidade = cidade
+
+    def mostrar_endereco(self):
+        print("Rua:", self.rua)
+        print("Cidade:", self.cidade)
+
+
+class Aluno:
+    def __init__(self, nome, idade, endereco):
+        self.nome = nome
+        self.idade = idade
+        self.endereco = endereco
+
+    def estudar(self):
+        print(self.nome, "está estudando.")
+
+
+class Professor:
+    def __init__(self, nome, disciplina):
+        self.nome = nome
+        self.disciplina = disciplina
+        self.escolas = []
+
+    def adicionar_escola(self, escola):
+        self.escolas.append(escola)
+
+    def ensinar(self):
+        print(self.nome, "está ensinando", self.disciplina)
+
+
+class Sala:
+    def __init__(self, numero):
+        self.numero = numero
+
+    def mostrar_sala(self):
+        print("Sala:", self.numero)
+
+
+class Escola:
+    def __init__(self, nome):
+        self.nome = nome
+        self.salas = []
+        self.professores = []
+
+    def adicionar_sala(self, sala):
+        self.salas.append(sala)
+
+    def adicionar_professor(self, professor):
+        self.professores.append(professor)
+
+    def mostrar_escola(self):
+        print("Escola:", self.nome)
+        print("Quantidade de salas:", len(self.salas))
+        print("Quantidade de professores:", len(self.professores))
+
+
+# Criando endereço
+endereco = Endereco("Rua Principal", "Parnaíba")
+
+# Criando aluno
+aluno = Aluno("Gabriel", 20, endereco)
+
+# Criando professor
+professor = Professor("João", "Programação")
+
+# Criando escola
+escola = Escola("Escola Modelo")
+
+# Criando salas
+sala1 = Sala(1)
+sala2 = Sala(2)
+
+# Adicionando salas à escola
+escola.adicionar_sala(sala1)
+escola.adicionar_sala(sala2)
+
+# Adicionando professor à escola
+escola.adicionar_professor(professor)
+
+# Professor também pode trabalhar em outra escola
+professor.adicionar_escola(escola)
+
+# Exibindo informações
+escola.mostrar_escola()
+
+aluno.estudar()
+
+professor.ensinar()
+
+aluno.endereco.mostrar_endereco()
